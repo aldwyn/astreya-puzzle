@@ -25,7 +25,7 @@ SECRET_KEY = 'sx1a3bgx6a=uv_p3+^%^@0lo-s_e&%42mpl%+an)q95btmhvzw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['charged-kiln-163417.appspot.com']
+ALLOWED_HOSTS = ['charged-kiln-163417.appspot.com', 'localhost']
 
 
 # Application definition
@@ -75,40 +75,40 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+# # These environment variables are configured in app.yaml.
+# CLOUDSQL_DB_NAME = os.environ.get('CLOUDSQL_DB_NAME')
+# CLOUDSQL_CONNECTION_NAME = os.environ.get('CLOUDSQL_CONNECTION_NAME')
+# CLOUDSQL_USER = os.environ.get('CLOUDSQL_USER')
+# CLOUDSQL_PASSWORD = os.environ.get('CLOUDSQL_PASSWORD')
+
+# if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': CLOUDSQL_DB_NAME,
+#             'USER': CLOUDSQL_USER,
+#             'PASSWORD': CLOUDSQL_PASSWORD,
+#             'HOST': os.path.join('/cloudsql', CLOUDSQL_CONNECTION_NAME),
+#         }
 #     }
-# }
-
-# These environment variables are configured in app.yaml.
-CLOUDSQL_DB_NAME = os.environ.get('CLOUDSQL_DB_NAME')
-CLOUDSQL_CONNECTION_NAME = os.environ.get('CLOUDSQL_CONNECTION_NAME')
-CLOUDSQL_USER = os.environ.get('CLOUDSQL_USER')
-CLOUDSQL_PASSWORD = os.environ.get('CLOUDSQL_PASSWORD')
-
-if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': CLOUDSQL_DB_NAME,
-            'USER': CLOUDSQL_USER,
-            'PASSWORD': CLOUDSQL_PASSWORD,
-            'HOST': os.path.join('/cloudsql', CLOUDSQL_CONNECTION_NAME),
-        }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': CLOUDSQL_DB_NAME,
-            'USER': CLOUDSQL_USER,
-            'PASSWORD': CLOUDSQL_PASSWORD,
-            'HOST': '127.0.0.1',
-            'PORT': '3306',
-        }
-    }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': CLOUDSQL_DB_NAME,
+#             'USER': CLOUDSQL_USER,
+#             'PASSWORD': CLOUDSQL_PASSWORD,
+#             'HOST': '127.0.0.1',
+#             'PORT': '3306',
+#         }
+#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
