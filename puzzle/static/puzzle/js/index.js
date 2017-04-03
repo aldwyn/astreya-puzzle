@@ -101,6 +101,22 @@ puzzleApp.controller('PuzzleController', function PuzzleController($scope, $http
         }
     }
 
+    $scope.confirmPageLeave = function(redirectTo) {
+        swal({
+            title: 'The puzzle is still unsolved.',
+            text: 'Are you sure you want to leave?',
+            showCancelButton: true,
+            showLoaderOnConfirm: true,
+            closeOnConfirm: false,
+        }, function(isConfirm) {
+            if (isConfirm) {
+                setTimeout(function() {
+                    $window.location.href = redirectTo;
+                }, 1000);
+            }
+        });
+    }
+
     $scope.checkPuzzleWin = function() {
         if ($scope.randomizedPool.isEqualTo($scope.puzzleNumberPool)) {
             setTimeout(function() {
@@ -119,6 +135,9 @@ puzzleApp.controller('PuzzleController', function PuzzleController($scope, $http
                     if (inputValue === false) return false;
                     if (inputValue === '') {
                         swal.showInputError('Your name should be provided.');
+                        return false;
+                    } else if (inputValue.length > 20) {
+                        swal.showInputError('Your name should be at most 20 characters.');
                         return false;
                     } else {
                         setTimeout(function() {

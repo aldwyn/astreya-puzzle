@@ -5,6 +5,8 @@
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 body {
@@ -24,7 +26,7 @@ main h1 {
 
 #puzzle {
     width: 340px;
-    margin: 20px auto;
+    margin: 40px auto;
 }
 
 .puzzle-num-container {
@@ -39,7 +41,6 @@ main h1 {
     font-size: 4em;
     background-color: #e3e3e3;
     font-family: "Raleway", sans-serif;
-    box-shadow: 0px 0px 10px 1px black;
     display: inline-block;
     font-weight: normal;
     border-radius: 4px;

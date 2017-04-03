@@ -1,5 +1,7 @@
 # Astreya Puzzle
 
+![Puzzle Screen Grab](https://github.com/aldwyn/astreya-puzzle/blob/master/screen-grab.png "Puzzle Screen Grab")
+
 ## Local Installation
 
 > Expecting that you already have installed Python and virtualenv (optional)

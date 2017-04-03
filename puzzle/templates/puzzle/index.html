@@ -17,8 +17,8 @@
                 Timer: <code>{$ stopWatch $}</code> | 
                 Moves: <code>{$ movesCounter $}</code>
             </h4>
-            <a href="/" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> Reset</a>
-            <a href="/top-scores" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-flash"></span> See Top Scores</a>
+            <button class="btn btn-primary btn-sm" ng-click="confirmPageLeave('/')"><span class="glyphicon glyphicon-refresh"></span> Reset</button>
+            <button class="btn btn-success btn-sm" ng-click="confirmPageLeave('/top-scores')"><span class="glyphicon glyphicon-flash"></span> See Top Scores</button>
             <div id="puzzle">
                 <div id="puzzle-num-container-{$ $index $}" class="puzzle-num-container"
                     ondrop="angular.element(this).scope().onDrop(event)"
