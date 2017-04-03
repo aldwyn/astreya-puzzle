@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html ng-app="puzzleApp">
+
+<head>
+    <title>Astreya Puzzle | Play</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'puzzle/css/bootstrap-readable.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'puzzle/css/sweetalert.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'puzzle/css/style.css' %}">
+</head>
+
+<body>
+    <div class="container" ng-controller="PuzzleController">
+        <main>
+            <h1>Astreya Puzzle!</h1>
+            <h4 id="counters">
+                Timer: <code>{$ stopWatch $}</code> | 
+                Moves: <code>{$ movesCounter $}</code>
+            </h4>
+            <a href="/" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> Reset</a>
+            <a href="/top-scores" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-flash"></span> See Top Scores</a>
+            <div id="puzzle">
+                <div id="puzzle-num-container-{$ $index $}" class="puzzle-num-container"
+                    ondrop="angular.element(this).scope().onDrop(event)"
+                    ondragover="event.preventDefault()"
+                    ng-repeat="num in randomizedPool">
+                    <div class="puzzle-num btn-default" draggable="true"
+                        data-number="{$ num $}"
+                        ondragstart="angular.element(this).scope().onDragStart(event)"
+                        ondragend="angular.element(this).scope().onDragEnd(event)"
+                        ng-click="focusNumber(num)">{$ num $}</div>
+                </div>
+            </div>
+            <div class="direction alert alert-warning" role="alert">
+                <strong>Direction:</strong> Move a number to a relative number horizontally/vertically. Aim for completing the puzzle with a sequential 0-9 order. 
+            </div>
+        <main>
+    </div>
+    <script type="text/javascript" src="{% static 'puzzle/js/jquery-3.2.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'puzzle/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'puzzle/js/angular.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'puzzle/js/sweetalert.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'puzzle/js/index.js' %}"></script>
+</body>
+
+</html>

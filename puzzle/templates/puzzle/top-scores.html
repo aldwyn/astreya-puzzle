@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Astreya Puzzle | Top Scores</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'puzzle/css/bootstrap-readable.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'puzzle/css/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <h1>Top 10 Results</h1>
+            <ul class="list-group">
+                {% for item in completion_times %}
+                <li class="list-group-item">
+                    <span class="badge pull-left">{{ forloop.counter }}</span>
+                    <span class="badge">{{ item.completion_time_in_seconds }} second{{ item.completion_time_in_seconds|pluralize }}</span>
+                    <span class="badge">{{ item.moves_count }} move{{ item.moves_count|pluralize }}</span>
+                    {{ item.player_name|title }}
+                </li>
+                {% empty %}
+                <li class="list-group-item">
+                    <strong>No results yet. Be the first one!</strong>
+                </li>
+                {% endfor %}
+            </ul>
+            <div>
+                <a href="/" class="btn btn-primary btn-lg">Play!</a>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

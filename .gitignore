@@ -1,0 +1,6 @@
+env/
+lib/
+static/puzzle
+static/admin
+static/rest_framework
+*pyc
